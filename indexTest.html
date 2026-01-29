@@ -1,0 +1,75 @@
+<!-- ===================== index.html ===================== -->
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tennis Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ===================== HEADER (SHARED ON ALL PAGES) ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Tennis Club Logo">
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a></li>
+        <li><a href="about.html" data-el="Σύλλογος" data-en="About">Σύλλογος</a></li>
+        <li><a href="programs.html" data-el="Προγράμματα" data-en="Programs">Προγράμματα</a></li>
+        <li><a href="coaches.html" data-el="Προπονητές" data-en="Coaches">Προπονητές</a></li>
+        <li><a href="gallery.html" data-el="Gallery" data-en="Gallery">Gallery</a></li>
+        <li><a href="contact.html" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switch">
+      <button data-lang="el">EL</button>
+      <button data-lang="en">EN</button>
+    </div>
+
+    <button class="hamburger">☰</button>
+  </div>
+</header>
+
+<!-- ===================== HERO BANNER ===================== -->
+<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d');">
+  <h1 data-el="Tennis Club" data-en="Tennis Club">Tennis Club</h1>
+</section>
+
+<!-- ===================== CLUB INTRO ===================== -->
+<section>
+  <h2 data-el="Ο Σύλλογός μας" data-en="Our Club">Ο Σύλλογός μας</h2>
+  <p data-el="Ένας σύγχρονος σύλλογος τένις με έμφαση στην ποιότητα."
+     data-en="A modern tennis club focused on quality.">
+     Ένας σύγχρονος σύλλογος τένις με έμφαση στην ποιότητα.
+  </p>
+</section>
+
+<!-- ===================== SERVICES PREVIEW ===================== -->
+<section>
+  <h2 data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</h2>
+  <div class="grid">
+    <div class="card">
+      <h3 data-el="Μαθήματα" data-en="Lessons">Μαθήματα</h3>
+    </div>
+    <div class="card">
+      <h3 data-el="Ακαδημία" data-en="Academy">Ακαδημία</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta">
+  <a href="contact.html" data-el="Επικοινωνήστε μαζί μας" data-en="Contact Us">
+    Επικοινωνήστε μαζί μας
+  </a>
+</section>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
