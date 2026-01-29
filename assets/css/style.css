@@ -48,6 +48,39 @@ body {
   font-size: 1.5rem;
 }
 
+/* LANGUAGE SWITCH */
+
+.lang-switch {
+  display: flex;
+  gap: 8px; /* spacing between flags */
+}
+
+.lang-switch button {
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 50%;   /* circular button */
+  width: 30px;          /* adjust size */
+  height: 30px;         /* keep width = height */
+  overflow: hidden;     /* ensures image fills circle */
+  cursor: pointer;
+  display: flex;        /* center the image */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.lang-switch button:hover {
+  transform: scale(1.1);
+}
+
+.lang-switch img {
+  width: auto;           /* scale width automatically */
+  height: 100%;          /* fill full height */
+  object-fit: cover;     /* cover the button circle */
+  display: block;
+}
+
 /* HERO */
 .hero {
   height: 50vh;
