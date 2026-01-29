@@ -166,3 +166,301 @@ body {
     display: flex;
   }
 }
+
+/* ======================= TYPOGRAPHY & TEXT STYLES ======================= */
+
+/* General body text styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Headings styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  color: #003c28; /* Dark green matching your header */
+  margin-bottom: 1rem;
+  text-transform: none; /* Remove any capitalization */
+}
+
+/* Specific styles for h2 in content sections */
+.content h2 {
+  font-size: 2.2rem;
+  text-transform: none; /* Removed uppercase */
+  letter-spacing: 0.5px; /* Reduced letter spacing */
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* Strong/bold text */
+strong, b {
+  color: #1e7f5c;
+  font-weight: 600;
+}
+
+/* Link styling */
+a {
+  color: #1e7f5c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #145c42;
+  text-decoration: underline;
+}
+
+/* ======================= INTRO SECTION SPECIFIC STYLES ======================= */
+
+.intro-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-section h2 {
+  margin-bottom: 2rem; /* Increased spacing between title and text */
+  font-size: 2.5rem;
+  text-align: center;
+  text-transform: none; /* No capitalization */
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  text-align: justify;
+  padding: 0 1rem;
+}
+
+/* ======================= CONTENT SECTIONS GENERAL STYLES ======================= */
+
+.content {
+  padding: 4rem 2rem;
+  background-color: white;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Card text styling */
+.card h3 {
+  font-size: 1.5rem;
+  color: #003c28;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: none; /* No capitalization */
+}
+
+.card p {
+  color: #555;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ======================= RESPONSIVE TYPOGRAPHY ======================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .card h3 {
+    font-size: 1.3rem;
+    text-transform: none; /* Ensure no capitalization on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .intro-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .intro-section p {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+
+/* ======================= GREEK LANGUAGE SPECIFIC STYLES ======================= */
+
+/* This ensures Greek text looks good with appropriate font stack */
+html[lang="el"] body {
+  font-family: 'Segoe UI', 'Tahoma', 'Geneva', Verdana, sans-serif;
+}
+
+/* Optional: Different styling for Greek headings if needed */
+html[lang="el"] h1,
+html[lang="el"] h2,
+html[lang="el"] h3 {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+/* ======================= BUTTON TEXT STYLES ======================= */
+
+.btn {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-transform: none; /* Removed uppercase */
+}
+
+/* ======================= NAVIGATION TEXT STYLES ======================= */
+
+.nav-desktop a,
+.nav-mobile a {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-transform: none; /* Removed uppercase */
+  letter-spacing: normal; /* Reset letter spacing */
+}
+
+/* ======================= HERO TEXT STYLES ======================= */
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  text-transform: none; /* No capitalization */
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-transform: none; /* No capitalization */
+}
+
+/* ======================= FOOTER TEXT STYLES ======================= */
+
+.site-footer {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.site-footer a {
+  color: #1e7f5c;
+}
+
+.site-footer a:hover {
+  color: #003c28;
+}
+
+/* ======================= CARD STYLING ======================= */
+
+/* Grid layout for services */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Card styling */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card image styling */
+.card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Card content styling */
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.card-content p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Card image styling */
+
+.logo img {
+  padding: 10;
+  border: none;
+  background: none;
+  border-radius: 5%; 
+  width: 90px;        
+  height: 60px;        
+  overflow: hidden;     /* ensures image fills circle */
+  display: flex;        /* center the image */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the list */
+ul {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Add spacing between paragraphs */
+p {
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+/* Style for the heading before the list */
+h3 {
+  margin: 2rem 0 1rem 0;
+  color: #003c28;
+  font-size: 1.5rem;
+  font-weight: 600;
+}

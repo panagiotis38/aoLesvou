@@ -39,5 +39,5 @@ langButtons.forEach(btn => {
 
 // ✅ INITIAL LANGUAGE ON PAGE LOAD
 document.addEventListener('DOMContentLoaded', () => {
-  setLanguage('en'); // or 'el'
+  setLanguage('el');
 });
