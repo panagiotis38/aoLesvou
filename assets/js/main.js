@@ -41,3 +41,103 @@ langButtons.forEach(btn => {
 document.addEventListener('DOMContentLoaded', () => {
   setLanguage('el');
 });
+
+// ======================= GALLERY FUNCTIONALITY =======================
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Gallery modal elements
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const modal = document.querySelector('.modal');
+  const modalImage = document.querySelector('.modal-image');
+  const modalTitle = document.querySelector('.modal-title');
+  const modalDescription = document.querySelector('.modal-description');
+  const closeModal = document.querySelector('.close-modal');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  
+  let currentIndex = 0;
+  const images = Array.from(galleryItems);
+  
+  // Open modal when clicking on gallery item
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      currentIndex = index;
+      updateModal();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+  });
+  
+  // Close modal
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+  
+  // Close modal when clicking outside the image
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Navigation buttons
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateModal();
+  });
+  
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    updateModal();
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active')) return;
+    
+    switch(e.key) {
+      case 'Escape':
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        break;
+      case 'ArrowLeft':
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateModal();
+        break;
+      case 'ArrowRight':
+        currentIndex = (currentIndex + 1) % images.length;
+        updateModal();
+        break;
+    }
+  });
+  
+  // Update modal content
+  function updateModal() {
+    const currentItem = images[currentIndex];
+    const img = currentItem.querySelector('img');
+    const caption = currentItem.querySelector('.image-caption');
+    
+    modalImage.src = img.src;
+    modalImage.alt = img.alt;
+    modalTitle.textContent = caption.textContent;
+    modalDescription.textContent = img.alt || 'Tennis club activity';
+  }
+  
+  // Also update modal content when language changes
+  // (We need to override the setLanguage function to handle gallery captions)
+  const originalSetLanguage = window.setLanguage;
+  
+  window.setLanguage = function(lang) {
+    // Call original function
+    originalSetLanguage(lang);
+    
+    // Update modal if it's open
+    if (modal.classList.contains('active')) {
+      updateModal();
+    }
+  };
+});
