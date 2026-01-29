@@ -424,7 +424,36 @@ html[lang="el"] h3 {
   margin: 0;
 }
 
-/* Card image styling */
+/* ======================= COACH CARDS STYLING ======================= */
+
+/* Taller portrait images for coaches */
+.coaches-grid .card-image {
+  height: 600px; /* Taller than the default 200px */
+}
+
+/* Optional: Add a circle/rounded effect for coach images */
+.coaches-grid .card-image img {
+  object-fit: cover;
+  border-radius: 50%; /* Makes images circular */
+  height: 500px;
+  display: block;
+}
+
+/* Remove the circular effect if you prefer regular portrait */
+.coaches-grid .card-image img {
+  border-radius: 0; /* Keep as rectangle */
+}
+
+/* Center align coach content */
+.coaches-grid .card-content {
+  text-align: center;
+}
+
+/* Different hover effect for coaches */
+.coaches-grid .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
 
 .logo img {
   padding: 10;
