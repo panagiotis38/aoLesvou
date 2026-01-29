@@ -21,13 +21,27 @@ const langButtons = document.querySelectorAll('[data-lang]');
 const translatable = document.querySelectorAll('[data-en]');
 
 function setLanguage(lang) {
+  // Update button active state
   langButtons.forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
 
+  // Update all translatable elements
   translatable.forEach(el => {
     el.textContent = el.dataset[lang];
   });
+
+  // Save language preference to localStorage
+  localStorage.setItem('preferredLanguage', lang);
+  
+  // Update HTML lang attribute for accessibility
+  document.documentElement.lang = lang;
+}
+
+// Get initial language from localStorage or default to Greek
+function getInitialLanguage() {
+  const savedLang = localStorage.getItem('preferredLanguage');
+  return savedLang || 'el'; // Default to Greek if nothing saved
 }
 
 // Button clicks
@@ -37,16 +51,21 @@ langButtons.forEach(btn => {
   });
 });
 
-// ✅ INITIAL LANGUAGE ON PAGE LOAD
+// ✅ INITIAL LANGUAGE ON PAGE LOAD (Uses saved preference)
 document.addEventListener('DOMContentLoaded', () => {
-  setLanguage('el');
+  const initialLang = getInitialLanguage();
+  setLanguage(initialLang);
 });
 
 // ======================= GALLERY FUNCTIONALITY =======================
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Gallery modal elements
+  // Only run gallery code if we're on a page with gallery items
   const galleryItems = document.querySelectorAll('.gallery-item');
+  
+  if (galleryItems.length === 0) return; // Skip if no gallery items
+  
+  // Gallery modal elements
   const modal = document.querySelector('.modal');
   const modalImage = document.querySelector('.modal-image');
   const modalTitle = document.querySelector('.modal-title');
@@ -123,7 +142,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     modalImage.src = img.src;
     modalImage.alt = img.alt;
-    modalTitle.textContent = caption.textContent;
+    
+    // Get current language from localStorage
+    const currentLang = localStorage.getItem('preferredLanguage') || 'el';
+    
+    // Update caption text based on current language
+    if (caption && caption.dataset) {
+      modalTitle.textContent = caption.dataset[currentLang] || caption.textContent;
+    } else {
+      modalTitle.textContent = img.alt || 'Tennis club activity';
+    }
+    
     modalDescription.textContent = img.alt || 'Tennis club activity';
   }
   
@@ -136,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     originalSetLanguage(lang);
     
     // Update modal if it's open
-    if (modal.classList.contains('active')) {
+    if (modal && modal.classList.contains('active')) {
       updateModal();
     }
   };
